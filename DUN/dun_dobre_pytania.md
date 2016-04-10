@@ -17,7 +17,12 @@ WX SY oznacza wykład X slajd Y
 * Odwzorowanie logistyczne - gdzie możnaby je zastosować?
 * Czemu $r = 4$ dla logistycznego jest takie magiczne? *(podpowiedź: co robi z odcinkiem $(0, 1)$?)*
 * Basen atrakcji. Czym jest? Jak wygląda dla jakiegoś dowolnego odwzorowania które ma dwa punkty stabilne?
-* Bifurkacja podwajania okresu. Jak działa?
+* Bifurkacja podwajania okresu. Jak działa? Narysuj ją na wykresie widma mocy.
+* Twierdzenie Szarkowskiego - o co w nim chodzi? Czy jest spełnione np. dla odwzorowania Bernoulliego?
+* Jeśli w układzie zachodzi podwajanie okresu, co możemy powiedzieć o odwzorowaniu Poincare ($x_{n+1} = f(x_n)$) dla tego układu? *Będzie się zachowywało jak jedno ze znanych nam. Które?*
+* Niestabilność Rayleigha-Benarda. Jak ją pokazać w szklance?
+* Jak działa przekrój stroboskopowy?
+* Biełusow-Żabotyński. Co rozgryźli fajnego i jakimi narzędziami to pokazali? Dlaczego jest niesamowite to, że tam jest 6-cykl?
 
 ### Konkretne
 * Jak sprawdzić, czy szum (szereg czasowy) jest deterministyczny, czy jednak losowy?
@@ -33,6 +38,9 @@ WX SY oznacza wykład X slajd Y
 * **Miara niezmiennicza** (nie gęstość!) - czy chodzi o podejście "od tyłu" do iteracji, w sytuacji gdzie wchodząc w głąb iteracji branchujemy się na fraktalne rozejścia?
 $$\mu(S) = \mu(f^{-1} (S))$$
 * W3 S7, bifurkacje - rozkminić programami jak to wygląda, przerobić te przykłady
-* Korzystając z wykresu diagramu bifurkacyjnego, jaki maksymalny okres orbity występuje w logistycznym dla $r=3.1$, $r=3.4$, $r=3.5$, $r = 3.567$ ? *(ostatnie jest podchwytliwe)*
+* Korzystając z wykresu diagramu bifurkacyjnego, jaki maksymalny okres orbity występuje w logistycznym dla $r=3.1$, $r=3.4$, $r=3.5$, $r = 3.567$ ? *(ostatnie jest podchwytliwe - punkt akumulacji!)*
 <img src="feigenbaum.png">
-* Przypomnij sobie rysunek z definicji wykładnika Lyapunova - rozciągający\kurczący się odcinek między dwoma punktami zaczynającymi blisko siebie. Narysuj podobny rysunek, gdy $r=r_{ms}$, dla orbity superstabilnej.
+* Przypomnij sobie rysunek z definicji wykładnika Lyapunova - rozciągający\kurczący się odcinek między dwoma punktami zaczynającymi blisko siebie. Narysuj podobny rysunek, gdy $r=r_{ms}$, dla orbity superstabilnej. <a href="https://de.wikipedia.org/wiki/Datei:Dollarnote_siegel_hq.jpg">*podpowiedź*</a>
+* Jak rozróżnić po obrazkach orbitę superstabilną i niesuperstabilną? Czy orbita W3S10 $r=3.2364$ dlatego nie jest do końca superstabilna, że 2-cykl w tym $r$ przechodzi przez $x=0.5$ (maksimum odwzorowania, znikający współczynnik stabilności) tylko w połowie swoich iteracji, i liniowa analiza zawodzi przez to że $\lambda$ jest różne w różnych $x$?
+* Czym jest bifurkacja tangencjalna?
+* Jaki jest związek między twierdzeniem Takensa, skończonymi różnicami na pochodne i szeregiem Taylora?

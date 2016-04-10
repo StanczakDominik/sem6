@@ -66,7 +66,7 @@ def calculate_orbits(r, x0, N=1000, N_potential=32, N_zlozenia=1):
 def draw_orbits(r, x, N, N_potential, N_zlozenia):
     for orbit in calculate_orbits(r, x, N, N_potential, N_zlozenia):
         print(orbit)
-        plt.plot(r, orbit, ",", alpha=0.3)
+        plt.plot(r, orbit, "g,", alpha=0.3)
     plt.title("Diagram bifurkacyjny mapy logistycznej")
     plt.grid()
     plt.ylabel("$x_N$ od N={} do N={} iteracji".format(N-N_potential, N))
