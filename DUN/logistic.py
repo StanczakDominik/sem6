@@ -35,7 +35,7 @@ def Histogram(x_0=x, r=3.2, NT=N, Map=logistic, N_zlozenia = N_zlozenia):
     axes2.set_ylabel('$x_{n+1}$')
     axes2.plot(x_grid, y_grid, 'k--', label='Map($x_n$, $r={}$)'.format(a))
     axes2.plot(x_grid, x_grid, 'k-', label='$x_n$')
-    axes2.scatter(xl[:-1], xl[1:], c = np.linspace(0,1,NT-1), s = 100, label='$x$', cmap='plasma')
+    axes2.scatter(xl[:-1], xl[1:], c = np.linspace(0,1,NT-1), s = 100, label='$x$')
     axes2.grid()
     axes2.set_xlim(0,1)
     axes2.set_ylim(0,1)
@@ -66,9 +66,9 @@ def calculate_orbits(r, x0, N=1000, N_potential=32, N_zlozenia=1, Map = logistic
             iteration_history[k] = iteration_vector
     return iteration_history
 
-def draw_orbits(r, x, N, N_potential, N_zlozenia, Map=logistic):
+def draw_orbits(r, x, N, N_potential=N, N_zlozenia=N_zlozenia, Map=logistic):
     for orbit in calculate_orbits(r, x, N, N_potential, N_zlozenia, Map):
-        print(orbit)
+        # print(orbit)
         plt.plot(r, orbit, "g,", alpha=0.3)
     plt.title("Diagram bifurkacyjny mapy logistycznej")
     plt.grid()
@@ -78,4 +78,6 @@ def draw_orbits(r, x, N, N_potential, N_zlozenia, Map=logistic):
     plt.show()
 
 if __name__=="__main__":
-    Histogram(r=0.9999999, Map=tent)
+    # Histogram(r=0.9999999, Map=tent)
+    # Histogram(r=3.1, Map=logistic, N_zlozenia =1, x_0 = 0.1)
+    draw_orbits(r, x, N)
