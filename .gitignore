@@ -1,3 +1,4 @@
 DUN/Materiały
 .ipynb_checkpoints*
 *.hdf5
+*.pyc
