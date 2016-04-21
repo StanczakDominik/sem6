@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 
 x = 0.3
 x_min = 2.9
-N=10000
+N=1000
 N_potential = 2**8
-N_zlozenia = 1
+N_zlozenia = 3
 r = np.linspace(x_min, 4, 10000)
 
 def bernoulli(x, r):
@@ -53,7 +53,7 @@ def Histogram(x_0=x, r=3.2, NT=N, Map=logistic, N_zlozenia = N_zlozenia):
     axes2_time.hist(xl, 50, normed=True)
     axes2_time.grid()
     plt.show()
-    return xl
+    #return xl
 
 def calculate_orbits(r, x0, N=1000, N_potential=32, N_zlozenia=1, Map = logistic):
     iteration_vector = x0*np.ones_like(r)
@@ -66,11 +66,12 @@ def calculate_orbits(r, x0, N=1000, N_potential=32, N_zlozenia=1, Map = logistic
             iteration_history[k] = iteration_vector
     return iteration_history
 
-def draw_orbits(r, x, N, N_potential=N, N_zlozenia=N_zlozenia, Map=logistic):
-    for orbit in calculate_orbits(r, x, N, N_potential, N_zlozenia, Map):
+def draw_orbits(x_min = x_min, x=x, N=N, N_potential=N_potential, N_zlozenia=N_zlozenia, Map=logistic):
+    r = np.linspace(x_min, 4, 1000)
+    for orbit in calculate_orbits(r.copy(), x, N, N_potential, N_zlozenia, Map):
         # print(orbit)
         plt.plot(r, orbit, "g,", alpha=0.3)
-    plt.title("Diagram bifurkacyjny mapy logistycznej")
+    plt.title("Diagram bifurkacyjny Mapy logistycznej")
     plt.grid()
     plt.ylabel("$x_N$ od N={} do N={} iteracji".format(N-N_potential, N))
     plt.xlabel("r")
@@ -78,6 +79,5 @@ def draw_orbits(r, x, N, N_potential=N, N_zlozenia=N_zlozenia, Map=logistic):
     plt.show()
 
 if __name__=="__main__":
-    # Histogram(r=0.9999999, Map=tent)
-    # Histogram(r=3.1, Map=logistic, N_zlozenia =1, x_0 = 0.1)
-    draw_orbits(r, x, N)
+    Histogram(r=3.827, Map=logistic, N_zlozenia =3, x_0 = 0.163157)
+    # draw_orbits(r, x, N)
