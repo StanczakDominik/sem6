@@ -67,3 +67,46 @@
         * WCOL: Word COLlision
         * SPI2X: SPI dwakroć szybszy
     * SPDR - SPI Data Register
+3. $I^2C$ aka Two-Wire Interface
+    * dwie linie dwustronne SDA (Serial DAta), SCL (Serial CLock) - tylko dwa przewody na całość
+    * Zarys działania:
+        | SDA | SCL | Tryb |
+        | --- | --- | --- |
+        |H | H | Bus Not Busy|
+        |L | H | Start transmit data |
+        |* | L | Data
+        |H | H | Stop transmit data |
+        |* | L | Fill SDA|
+    * Dowolna liczba danych w transmisji (porcjowane po bajcie)
+        * Od MSB do LSB
+        * Odbiornik potwierdza każdy bajt własnym sygnałem
+            1. Master przyjmuje potwierdzenie ustawiając SDA na H
+            2. Slave wysyła potwierdzenie wymuszając L na SDA
+        * W przypadku overflow slave ustawia low na SCL
+        * Brak potwierdzenia bajtu: SDA high i czekamy na potwierdzenie
+    * Początek przesyłu: ramka z adresem (7bit), bitem R\W,
+    * W Atmelach I2C sprzętowo przez TWI
+    * Rejestry
+        * TWBR
+        * TWPS
+        * TWCR
+            * TWINT
+            * TWEA
+            * TWSTA
+            * TWSTO
+            * TWWC
+            * TWEN
+            * TWIE
+        * TWSR
+        * TWAR
+        * TWDR
+4. 1Wire
+    * One master, many slaves (tanio!)
+    * Transmisja:
+        1. Master: RESET PULSE (low na 480 us, high)
+        2. Slave: PRESENCE PULSE (na high: czeka 60us, low na 240us)
+    * Komendy:
+        * READ ROM - czytaj ID salve
+        * SKIP ROM  - adresuj wszystkie układy slave
+        * MATCH ROM - adresuj konkretny slave
+        * SEARCH ROM - hunt for slaves
