@@ -1,14 +1,6 @@
-| Magistrala | wat | hm |
-|------|-----|----|
-|USART|
-|SPI|
-|TWI|
-|USB|
-|1Wire
-
 # Pojęcia
-* Baud rate - prędkość transmisji *informacji* (merytorycznej)
-* Bit rate - prędkość przesyłu danych (w tym maintenance jak parity, stop, start)
+* Bit rate - prędkość transmisji *informacji* (merytorycznej)
+* Baud rate - prędkość przesyłu danych (w tym maintenance jak parity, stop, start)
 
 # Magistrale
 1. USART
@@ -87,19 +79,19 @@
     * Początek przesyłu: ramka z adresem (7bit), bitem R\W,
     * W Atmelach I2C sprzętowo przez TWI
     * Rejestry
-        * TWBR
-        * TWPS
-        * TWCR
-            * TWINT
-            * TWEA
-            * TWSTA
-            * TWSTO
-            * TWWC
-            * TWEN
-            * TWIE
-        * TWSR
-        * TWAR
-        * TWDR
+        * TWBR - Two Wire Bit Rate Register
+        * TWPS - Two Wire PreScaler
+        * TWCR - Two Wire Control Register
+            * TWINT - Two Wire INTerrupt flag - ten fikuśny odwrotny
+            * TWEA - Two Wire Enable Acknowledge - czy generować ack.
+            * TWSTA - Two Wire Start Condition - gdy nasz device chce być masterem
+            * TWSTO - Two Wire STOp condition bit - kontrola błędów generalnie
+            * TWWC - TW Write Collision flag - gdy próbujemy wpisać do TWDR gdy TWINT low
+            * TWEN - TW Enable (odpala TwoWire)
+            * TWIE - TW Interrupt Enable
+        * TWSR - TW Status Register
+        * TWAR - Address Register
+        * TWDR - TW Data Register
 4. 1Wire
     * One master, many slaves (tanio!)
     * Transmisja:
