@@ -40,8 +40,8 @@ def Histogram(x_0=x, r=3.2, NT=N, Map=logistic, N_zlozenia = N_zlozenia):
     axes2.set_xlim(0,1)
     axes2.set_ylim(0,1)
     axes2.legend()
-    import pdb
-    pdb.set_trace()
+
+
 
     axes2_position.set_xlabel('$n$')
     axes2_position.set_ylabel('$x_{n}$')
